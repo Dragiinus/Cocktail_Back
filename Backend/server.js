@@ -13,12 +13,12 @@ app.use(express.urlencoded({ extended: true}))
 
 /********************************/
 /*** Mise en place du routage ***/
-app.get('/', (req,res) => res.send("I'm online. All is OK !"))
+app.get('/', (req,res) => res.send(`I'm online. All is OK !`))
 
 app.get('*', (req,res) => res.status(501).send('What the hell are you doing !?!'))
 
 /********************/
 /*** Start server ***/
-app.listen(8989, () => {
-    console.log('This server is running on port 8989. Have fun !')
+app.listen(process.env.SERVER_PORT, () => {
+    console.log(`This server is running on port ${process.env.SERVER_PORT}. Have fun !`)
 })
