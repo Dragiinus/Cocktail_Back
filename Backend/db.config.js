@@ -9,12 +9,22 @@ let sequelize = new Sequelize(
         host: process.env.DB_HOST,
         port: process.env.DB_PORT,
         dialect: 'mysql',
-        logging: false
+        logging: false,
     }
 )
 
 /*********************************/
+/*** Mise en place des relations */
+const db = {}
+db.User = require('./models/user')
+db.Cocktail = require('./models/cocktail')
+
+
+
+/*********************************/
 /*** Synchronisation des modèles */
-// sequelize.sync()
+// sequelize.sync(err => {
+//     console.log('Database Sync Error', err)
+// })
 
 module.exports = sequelize
