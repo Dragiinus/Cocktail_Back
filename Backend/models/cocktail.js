@@ -8,7 +8,7 @@ const DB = require('../db.config')
 const Cocktail = DB.define('Cocktail', {
     id: {
         type: DataTypes.INTEGER(10),
-        primarykey: true,
+        primaryKey: true,
         autoIncrement: true
     },
     user_id:{
@@ -31,5 +31,11 @@ const Cocktail = DB.define('Cocktail', {
         allowNull: false,
     },
 }, { paranoid: true })
+
+/********************************/
+/*** Synchronisation du modèles */
+// Cocktail.sync()
+// Cocktail.sync({force: true})
+// Cocktail.sync({ alter: true})
 
 module.exports = Cocktail

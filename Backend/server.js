@@ -15,9 +15,17 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
+/*************************************/
+/*** Import des modules de routage ***/
+const user_router = require('./routes/users')
+const cocktail_router = require('./routes/cocktails')
+
 /********************************/
 /*** Mise en place du routage ***/
 app.get('/', (req,res) => res.send(`I'm online. All is OK !`))
+
+app.use('/users', user_router)
+app.use('/cocktails', cocktail_router)
 
 app.get('*', (req,res) => res.status(501).send('What the hell are you doing !?!'))
 

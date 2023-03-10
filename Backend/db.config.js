@@ -14,14 +14,6 @@ let sequelize = new Sequelize(
 )
 
 /*********************************/
-/*** Mise en place des relations */
-const db = {}
-db.User = require('./models/user')
-db.Cocktail = require('./models/cocktail')
-
-
-
-/*********************************/
 /*** Synchronisation des modèles */
 // sequelize.sync(err => {
 //     console.log('Database Sync Error', err)

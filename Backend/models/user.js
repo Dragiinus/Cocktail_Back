@@ -5,13 +5,10 @@ const DB = require('../db.config')
 
 /*********************************/
 /*** Définition du modèle User ***/
-// module.exports = () => {
-
-// }
 const User = DB.define('User', {
     id: {
         type: DataTypes.INTEGER(10),
-        primarykey: true,
+        primaryKey: true,
         autoIncrement: true
     },
     nom:{
@@ -40,5 +37,11 @@ const User = DB.define('User', {
         is: /^[0-9a-f]{64}$/i
     }
 }, { paranoid: true })
+
+/********************************/
+/*** Synchronisation du modèles */
+// User.sync()
+// User.sync({force: true})
+// User.sync({ alter: true})
 
 module.exports = User
