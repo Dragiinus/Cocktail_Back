@@ -2,12 +2,21 @@
 /*** Import des module nécessaires */
 const express = require('express')
 const bcrypt = require('bcrypt')
+const checkTokenMiddleware = require('../jsonwebtoken/check')
 
 const Cocktail = require('../models/cocktail')
 
 /***************************************/
 /*** Récupération du routeur d'express */
 let router = express.Router()
+
+/***********************************************/
+/*** Middleware pour logger dates de requete ***/
+router.use( (req, res, next) => {
+    const event = new Date()
+    console.log('Cocktail Time:', event.toString())
+    next()
+})
 
 /**************************************/
 /*** Routage de la ressource Cocktail */
@@ -39,7 +48,7 @@ router.get('/:id', (req, res) => {
         .catch(err => res.status(500).json({ message: 'Database Error', error: err }))
 })
 
-router.put('', (req, res) => {
+router.put('', checkTokenMiddleware, (req, res) => {
     const { user_id, nom, description, recette } = req.body
 
     // Validation des données reçues
@@ -63,7 +72,7 @@ router.put('', (req, res) => {
         .catch(err => res.status(500).json({ message: 'Database Error', error: err }))
 })
 
-router.patch('/:id', (req, res) => {
+router.patch('/:id', checkTokenMiddleware, (req, res) => {
     let cocktailId = parseInt(req.params.id)
 
     // Vérification si le champ id est présent et cohérent
@@ -87,7 +96,7 @@ router.patch('/:id', (req, res) => {
         .catch(err => res.status(500).json({ message: 'Database Error', error: err }))
 })
 
-router.post('/untrash/:id', (req, res) => {
+router.post('/untrash/:id', checkTokenMiddleware, (req, res) => {
     let cocktailId = parseInt(req.params.id)
 
     // Vérification si le champ id est présent et cohérent
@@ -100,7 +109,7 @@ router.post('/untrash/:id', (req, res) => {
         .catch(err => res.status(500).json({ message: 'Database Error', error: err }))
 })
 
-router.delete('/trash/:id', (req, res) => {
+router.delete('/trash/:id', checkTokenMiddleware, (req, res) => {
     let cocktailId = parseInt(req.params.id)
 
     // Vérification si le champ id est présent et cohérent
@@ -114,7 +123,7 @@ router.delete('/trash/:id', (req, res) => {
         .catch(err => res.status(500).json({ message: 'Database Error', error: err }))
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', checkTokenMiddleware, (req, res) => {
     let cocktailId = parseInt(req.params.id)
 
     // Vérification si le champ id est présent et cohérent
