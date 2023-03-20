@@ -1,12 +1,12 @@
-/***********************************/
-/*** Import des module nécessaires */
+/*************************************/
+/*** Import des module nécessaires ***/
 const express = require('express')
 const checkTokenMiddleware = require('../jsonwebtoken/check')
 
 const cocktailCtrl = require('../controllers/cocktails')
 
-/***************************************/
-/*** Récupération du routeur d'express */
+/*****************************************/
+/*** Récupération du routeur d'express ***/
 let router = express.Router()
 
 /***********************************************/
@@ -17,8 +17,8 @@ router.use( (req, res, next) => {
     next()
 })
 
-/**************************************/
-/*** Routage de la ressource Cocktail */
+/****************************************/
+/*** Routage de la ressource Cocktail ***/
 
 router.get('', cocktailCtrl.getAllCocktails)
 

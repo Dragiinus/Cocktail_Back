@@ -1,9 +1,9 @@
-/***********************************/
-/*** Import des module nécessaires */
+/*************************************/
+/*** Import des module nécessaires ***/
 const Cocktail = require('../models/cocktail')
 
-/**************************************/
-/*** Routage de la ressource Cocktail */
+/****************************************/
+/*** Routage de la ressource Cocktail ***/
 
 exports.getAllCocktails = (req, res) => {
     Cocktail.findAll({paranoid: false})

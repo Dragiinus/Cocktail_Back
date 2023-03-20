@@ -1,11 +1,11 @@
-/***********************************/
-/*** Import des module nécessaires */
+/*************************************/
+/*** Import des module nécessaires ***/
 const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 
 
-/**********************************/
-/*** Routage de la ressource Auth */
+/************************************/
+/*** Routage de la ressource Auth ***/
 
 exports.login = async (req, res) => {
     const { email, password } = req.body

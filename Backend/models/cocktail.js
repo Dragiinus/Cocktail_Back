@@ -3,7 +3,7 @@
 const { DataTypes } = require('sequelize')
 const DB = require('../db.config')
 
-/*********************************/
+/*************************************/
 /*** Définition du modèle Cocktail ***/
 const Cocktail = DB.define('Cocktail', {
     id: {
@@ -32,8 +32,8 @@ const Cocktail = DB.define('Cocktail', {
     },
 }, { paranoid: true })
 
-/********************************/
-/*** Synchronisation du modèles */
+/**********************************/
+/*** Synchronisation du modèles ***/
 // Cocktail.sync()
 // Cocktail.sync({force: true})
 // Cocktail.sync({ alter: true})

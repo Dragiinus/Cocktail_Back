@@ -1,9 +1,9 @@
-/************************************/
-/*** Import des modules necessaires */
+/**************************************/
+/*** Import des modules necessaires ***/
 const { Sequelize } = require('sequelize')
 
-/************************************/
-/*** Connexion à la base de données */
+/*************************************/
+/*** Connexion à la base de données ***/
 let sequelize = new Sequelize(
     process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
         host: process.env.DB_HOST,
@@ -13,8 +13,8 @@ let sequelize = new Sequelize(
     }
 )
 
-/*********************************/
-/*** Synchronisation des modèles */
+/***********************************/
+/*** Synchronisation des modèles ***/
 // sequelize.sync(err => {
 //     console.log('Database Sync Error', err)
 // })

@@ -38,8 +38,8 @@ const User = DB.define('User', {
     }
 }, { paranoid: true })
 
-/********************************/
-/*** Synchronisation du modèles */
+/**********************************/
+/*** Synchronisation du modèles ***/
 // User.sync()
 // User.sync({force: true})
 // User.sync({ alter: true})
