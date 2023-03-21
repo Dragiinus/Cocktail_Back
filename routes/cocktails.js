@@ -2,8 +2,7 @@
 /*** Import des module nécessaires ***/
 const express = require('express')
 const checkTokenMiddleware = require('../jsonwebtoken/check')
-
-const cocktailCtrl = require('../controllers/cocktails')
+const cocktailCtrl = require('../controllers/cocktail')
 
 /*****************************************/
 /*** Récupération du routeur d'express ***/

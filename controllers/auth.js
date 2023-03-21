@@ -1,8 +1,10 @@
 /*************************************/
 /*** Import des module nécessaires ***/
 const bcrypt = require('bcrypt')
-// const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
+const DB = require('../db.config')
+const User = DB.User
 
 /************************************/
 /*** Routage de la ressource Auth ***/

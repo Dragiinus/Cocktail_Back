@@ -1,6 +1,8 @@
 /*************************************/
 /*** Import des module nécessaires ***/
-const Cocktail = require('../models/cocktail')
+const DB = require('../db.config')
+const Cocktail = DB.Cocktail
+const User = DB.User
 
 /****************************************/
 /*** Routage de la ressource Cocktail ***/
